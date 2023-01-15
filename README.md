@@ -13,9 +13,8 @@ Rest api created with nodejs, express and using PostgreSQL database
 
 ## How to run
 <ol>
-  <li>create database with name "db-rest-api"</li>
-  <li>create table with name "users"</li>
-  <li>create columns "id", "firstname", "lastname" and "age"</li>
+  <li>create database with name "db-rest-api" on postgresql</li>
+  <li>import the database file named "db-api-rest" to postgresql</li>
   <li>npm install</li>
   <li>setup you database on connection.js</li>
   <li>npm start</li>
