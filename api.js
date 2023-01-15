@@ -34,8 +34,8 @@ app.get('/users/:id', (req, res)=>{
 
 app.post('/users', (req, res)=>{
     const user = req.body;
-    let insertQuery = `insert into users(id, firstname, lastname, age) 
-                       values(${user.id}, '${user.firstname}', '${user.lastname}', '${user.age}')`
+    let insertQuery = `insert into users(name, email, phone) 
+                       values('${user.name}', '${user.email}', '${user.phone}')`
 
     client.query(insertQuery, (err, result)=>{
         if(!err){
@@ -53,9 +53,9 @@ app.post('/users', (req, res)=>{
 app.put('/users/update/:id', (req, res)=> {
     let user = req.body;
     let updateQuery = `update users
-                       set firstname = '${user.firstname}',
-                       lastname = '${user.lastname}',
-                       age = '${user.age}'
+                       set name = '${user.name}',
+                       email = '${user.email}',
+                       phone = '${user.phone}'
                        where id = ${user.id}`
 
     client.query(updateQuery, (err, result)=>{
