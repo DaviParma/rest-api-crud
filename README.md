@@ -1,5 +1,5 @@
-# rest-api-sql-crud
-Rest api relate to a crud, created with nodejs, express and using PostgreSQL database
+# rest-api-sql
+Rest api created with nodejs, express and using PostgreSQL database
 
 ## Details about the page:
 - Create User
