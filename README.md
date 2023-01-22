@@ -6,8 +6,8 @@ Rest api created with nodejs, express and using PostgreSQL database
 - Read User
 - Update User
 - Delete User
-- Check Email
-- Check Id
+- Check if the email exists
+- Check if the id exists
 
 ## Technologies used:
 
