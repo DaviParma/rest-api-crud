@@ -1,8 +1,10 @@
-
 const client = require('./connection.js')
-
+var cors = require('cors')
 const express = require('express')
 const app = express()
+
+
+app.use(cors())
 
 
 const bodyParser = require('body-parser')
@@ -11,7 +13,7 @@ app.use(bodyParser.json());
 
 
 app.get('/users', (req, res)=>{
-    client.query(`Select * from users`, (err, result)=>{
+    client.query(`Select * from users Order by id`, (err, result)=>{
         if(!err){
             res.send(result.rows);
         }
@@ -25,11 +27,35 @@ app.get('/users/:id', (req, res)=>{
         if(!err){
             res.send(result.rows);
         }
-
     });
     client.end;
 
 });
+
+app.get('/users/check-email/:email', (req, res)=>{
+    client.query(`Select * from users where email='${req.params.email}'`, (err, result)=>{
+        if(!err){
+            res.send(result.rows);
+        }
+    });
+    client.end;
+
+});
+
+
+app.get('/users/search/:query', (req, res)=>{
+    client.query(`select * from users where name Like '%${req.params.query}%' or email Like '%${req.params.query}%'`, (err, result)=>{
+        if(!err){
+            res.send(result.rows);
+        }
+    });
+    client.end;
+
+});
+
+
+
+
 
 
 app.post('/users', (req, res)=>{
@@ -56,7 +82,7 @@ app.put('/users/update/:id', (req, res)=> {
                        set name = '${user.name}',
                        email = '${user.email}',
                        phone = '${user.phone}'
-                       where id = ${user.id}`
+                       where id = ${req.params.id}`
 
     client.query(updateQuery, (err, result)=>{
         if(!err){
