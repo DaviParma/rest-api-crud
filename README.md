@@ -1,5 +1,9 @@
 # rest-api-sql
-Rest api created with nodejs, express and using PostgreSQL database
+Rest api created with nodejs, express and using PostgreSQL database.
+
+## This rest-api is used in a project I created:
+
+https://github.com/DaviParma/Crud
 
 ## Details about the page:
 - Create User
