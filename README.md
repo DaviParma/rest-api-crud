@@ -1,4 +1,4 @@
-# rest-api-sql
+# rest-api-crud
 Rest api created with nodejs, express and using PostgreSQL database.
 
 ## This rest-api is used in a project I created:
